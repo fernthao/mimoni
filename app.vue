@@ -1,8 +1,3 @@
 <template>
-  <div>
-    <NuxtWelcome />
-    <section>
-        <b-button>Click Me</b-button>
-    </section>
-  </div>
+  <v-btn>Add saving goal</v-btn>
 </template>
