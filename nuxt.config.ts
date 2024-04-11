@@ -5,5 +5,16 @@ export default defineNuxtConfig({
     // prerender index route by default
     '/': { prerender: true },
   },
-  plugins: ['@/plugins/buefy']
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+  css: ['~/assets/css/main.css'],
+  app: {
+    head: {
+      "script": [{src: "https://kit.fontawesome.com/0268de323d.js"}],
+    }
+  }
 });
