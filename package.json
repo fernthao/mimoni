@@ -15,6 +15,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@vercel/postgres": "^0.8.0",
     "buefy": "npm:@ntohq/buefy-next@^0.1.2"
   }
 }
