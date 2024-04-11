@@ -3,4 +3,18 @@
     <i class = "fa-solid fa-plus"></i>
     Add a saving goal
   </button>
+  <div>{{ goals }}</div>
 </template>
+
+<script setup>
+  import { ref } from 'vue';
+
+  const goals = ref([])
+
+  //get goals
+  const { data, pending, error, refresh } = await useAsyncData(
+    'goals',
+    () => $fetch('/api/goals')
+  )
+  goals.value = data.value
+</script>
