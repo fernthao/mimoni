@@ -26,12 +26,15 @@
 
   //get goals -> READ
   const goals = ref([])
-  const { data, pending, error, refresh } = await useAsyncData(
-    'goals',
-    () => $fetch('/api/goals')
-  )
-  goals.value = data.value
-
+  async function getGoals() {
+    const { data, pending, error, refresh } = await useAsyncData(
+      'goals',
+      () => $fetch('/api/goals')
+    )
+    goals.value = data.value
+  }
+  getGoals();
+  
   //update goal -> UPDATE
   async function updateGoal(){
     const { updateGoal } = await $fetch('/api/goals',{
