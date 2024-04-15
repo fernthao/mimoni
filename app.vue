@@ -22,6 +22,7 @@
         target: 1000
       }
     })
+    getGoals();
   }
 
   //get goals -> READ
@@ -34,7 +35,7 @@
     goals.value = data.value
   }
   getGoals();
-  
+
   //update goal -> UPDATE
   async function updateGoal(){
     const { updateGoal } = await $fetch('/api/goals',{
@@ -46,6 +47,7 @@
         target: 1000
       }
     })
+    getGoals();
   }
 
   //delete goal -> DELETE
@@ -56,6 +58,7 @@
         name: "Yay"
       }
     })
+    getGoals();
   }
 
 </script>
