@@ -16,5 +16,6 @@ export default defineNuxtConfig({
     head: {
       "script": [{src: "https://kit.fontawesome.com/0268de323d.js"}],
     }
-  }
+  },
+  modules: ['@nuxt/ui'],
 });
