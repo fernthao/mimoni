@@ -1,13 +1,13 @@
-<!-- <template>
+<template>
     <button class="px-6 h-12 uppercase font-semibold tracking-wider border-2 border-black bg-amber-400 text-black" @click="isOpen=true">
       <i class = "fa-solid fa-plus"></i>
       Add a saving goal
     </button>
     <Dialog  :open="isOpen" @close="setIsOpen">
-        //The backdrop, rendered as a fixed sibling to the panel container
+        <!-- The backdrop, rendered as a fixed sibling to the panel container -->
         <div class="fixed inset-0 bg-black/30" aria-hidden="true"></div> 
 
-        //Full-screen container to center the panel                                                 
+        <!-- Full-screen container to center the panel                                                  -->
         <div class="fixed inset-0 flex w-screen items-center justify-center p-2">
             <DialogPanel class="w-1/2 p-2 bg-amber-100 border rounded-lg border-amber-200 shadow sm:p-6 md:p-8 dark:bg-neutral-800 dark:border-amber-700">
                 <DialogTitle class="flex flex-row text-xl font-medium text-amber-900 dark:text-white">
@@ -43,16 +43,16 @@
             </DialogPanel>
         </div>
     </Dialog>
-</template> -->
+</template>
 
-<template>
+<!-- <template>
     <button class="px-6 h-12 uppercase font-semibold tracking-wider border-2 border-black bg-amber-400 text-black" @click="isOpen=true">
       <i class = "fa-solid fa-plus"></i>
       Add a saving goal
     </button>
 
     <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true" v-if="isOpen">
-        <!--
+        <!-
             Background backdrop, show/hide based on modal state.
 
             Entering: "ease-out duration-300"
@@ -61,12 +61,12 @@
             Leaving: "ease-in duration-200"
             From: "opacity-100"
             To: "opacity-0"
-        -->
+        ->
         <div class="fixed inset-0 bg-black bg-opacity-30 transition-opacity"> </div>
 
         <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
             <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <!--
+            <!-
                 Modal panel, show/hide based on modal state.
 
                 Entering: "ease-out duration-300"
@@ -75,7 +75,7 @@
                 Leaving: "ease-in duration-200"
                 From: "opacity-100 translate-y-0 sm:scale-100"
                 To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-            -->
+            ->
             <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                 <div class="bg-amber-100 border-amber-200 dark:bg-neutral-800 dark:border-amber-700 px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                 <div>
@@ -117,11 +117,11 @@
             </div>
         </div>
     </div>
-</template>
+</template> -->
 
 <script setup>
 import { ref } from 'vue';
-//import { Dialog, DialogPanel, DialogTitle } from '@headlessui/vue';
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/vue';
 
 const props = defineProps({goalList: Array})
 

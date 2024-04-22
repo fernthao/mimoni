@@ -36,7 +36,7 @@
             <div v-if="goal.saved >= goal.target" class="w-44 rounded-lg flex items-center justify-center h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check pr-1"></i> Completed!</div>
             <div v-if="goal.saved < goal.target" class="w-44 rounded-lg flex items-center justify-center h-12 uppercase tracking-wider border-2 border-amber-800 bg-amber-500 text-white"> <i class="fa-solid fa-ellipsis pr-1"></i>Ongoing</div>
           </td>
-          <td class="p-4 flex flex-row border-l border-dotted border-neutral-500" >
+          <td class="p-4 flex flex-row gap-1 border-l border-dotted border-neutral-500" >
             <Update v-if="goal.saved < goal.target" :currentGoal="goal" @goal-editted="updateGoal"/>
             <button class="flex items-center justify-center w-1/2 px-6 h-12 uppercase font-semibold  tracking-wider border-2 border-black bg-neutral-300 text-black" @click.once="deleteGoal(goal)">
               Drop
