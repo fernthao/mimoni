@@ -7,7 +7,9 @@
     <hr class="h-px mb-10 bg-amber-200 border-0 dark:bg-amber-700"></hr>
   </div>  
   <div class="m-5">
-    <div></div>
+    <div class="text-xl uppercase font-semibold tracking-wider my-3 mx-2 bg-gradient-to-r from-amber-600 to-orange-300 bg-clip-text text-transparent hover:from-orange-300 hover:to-amber-600 inline-block">
+      Total points: {{ points }}
+    </div>
 
     <div><GoalDialog :goalList="goals" @goal-added="addGoal"/></div>
     
@@ -66,12 +68,21 @@
 
   //get goals -> READ
   const goals = ref();
+  const points = ref();
   async function getGoals() {
     const { data, pending, error, refresh } = await useFetch('/api/goals')
     
     goals.value = data.value
+    let sum = 0;
+    for (let i = 0; i < data.value.length; i++) {
+        //if goal is completed
+        if(data.value[i].saved >= data.value[i].target) {
+          sum += data.value[i].target;
+        }
+    }
+    points.value = sum;
   }
-  onMounted(() => getGoals())
+  onMounted(() =>{getGoals()})
 
   //update goal -> UPDATE
   async function updateGoal(goal){
