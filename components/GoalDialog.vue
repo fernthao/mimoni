@@ -159,6 +159,12 @@ function submitted() {
     if (valid) {
         emit('goalAdded', goal.value)
         setIsOpen(false)
+        goal.value = {
+            goalName: "",
+            description: "",
+            saved: 0,
+            target: 0,
+        }
     }
 }
 

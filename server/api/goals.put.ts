@@ -17,7 +17,9 @@ export default defineEventHandler(async (event) => {
           saved: goalData.saved,
           target: goalData.target
         },
-      })
+      }).catch((error: any) => {
+        console.log(error);
+    })
 
     return updateGoal;
 })

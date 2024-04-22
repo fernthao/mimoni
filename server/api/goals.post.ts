@@ -10,6 +10,8 @@ export default defineEventHandler(async (event) => {
     goalData = await readBody(event).then((value) => {return value})
     const addGoal = await prisma.goals.create({
         data: goalData
+    }).catch((error: any) => {
+        console.log(error);
     })
     return addGoal;
 })

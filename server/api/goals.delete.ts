@@ -6,6 +6,8 @@ export default defineEventHandler(async (event) => {
         where: {
             name: goal.name
         }
+    }).catch((error: any) => {
+        console.log(error);
     })
     return deleteGoal;
 })

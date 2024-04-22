@@ -32,7 +32,7 @@
           <td>{{ goal.target }}</td>
           <td  v-if="goal.saved < goal.target">
             <Update :currentGoal="goal" @goal-editted="updateGoal"/>
-            <button class="m-1 px-6 h-12 uppercase tracking-wider border-2 border-black bg-neutral-300 text-black" @click="deleteGoal(goal)">Drop</button>
+            <button class="m-1 px-6 h-12 uppercase tracking-wider border-2 border-black bg-neutral-300 text-black" @click.once="deleteGoal(goal)">Drop</button>
           </td>
           <td  v-if="goal.saved >= goal.target">
             <div class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check"></i> Completed!</div>

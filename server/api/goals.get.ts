@@ -4,7 +4,7 @@ import { prisma } from '../../prisma/db'
 export default defineEventHandler(async (event) => {
     const goalList = await prisma.goals.findMany()
     .catch((error: any) => {
-        console.error(error);
+        console.log(error);
     });
 
     return goalList;
