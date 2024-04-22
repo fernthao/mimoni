@@ -52,7 +52,7 @@
 
 
 <template>
-    <button class="px-6 h-12 uppercase font-semibold tracking-wider border-2 border-black bg-amber-400 text-black" @click="isOpen=true">
+    <button class="w-1/2 m-1 px-6 h-12 uppercase font-semibold tracking-wider border-2 border-black bg-amber-400 text-black" @click="isOpen=true">
         Update
     </button>
 

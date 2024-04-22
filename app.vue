@@ -1,6 +1,6 @@
 <template>
   <div class="dark:bg-amber-100">
-    <div class="text-6xl uppercase font-semibold tracking-wider my-3 mx-2 bg-gradient-to-r from-amber-600 to-orange-300 bg-clip-text text-transparent hover:from-orange-300 hover:to-amber-600 inline-block" >
+    <div class="w-fit text-6xl uppercase font-semibold tracking-wider my-3 mx-2 bg-gradient-to-r from-amber-600 to-orange-300 bg-clip-text text-transparent hover:from-orange-300 hover:to-amber-600 inline-block" >
         <i class="fa-solid fa-fire"></i>
         Save For that sh<span class="text-4xl">&#x1F495;</span>t
     </div>
@@ -22,20 +22,24 @@
           <th>Progress</th>
           <th>Points</th>
           <th>Action</th>
+          <th>Status</th>
         </tr>
       </thead>
-      <tbody v-for="goal in goals">
+      <tbody v-for="goal in goals" :key="goal.name">
         <tr>
           <td>{{ goal.name }}</td>
           <td>{{ goal.description }}</td>
           <td>{{ goal.saved }}/{{ goal.target }}</td>
           <td>{{ goal.target }}</td>
-          <td  v-if="goal.saved < goal.target">
-            <Update :currentGoal="goal" @goal-editted="updateGoal"/>
-            <button class="m-1 px-6 h-12 uppercase tracking-wider border-2 border-black bg-neutral-300 text-black" @click.once="deleteGoal(goal)">Drop</button>
+          <td class="flex flex-row" >
+            <Update v-if="goal.saved < goal.target" :currentGoal="goal" @goal-editted="updateGoal"/>
+            <button class="w-1/2 m-1 px-6 h-12 uppercase font-semibold  tracking-wider border-2 border-black bg-neutral-300 text-black" @click.once="deleteGoal(goal)">
+              Drop
+            </button>
           </td>
-          <td  v-if="goal.saved >= goal.target">
-            <div class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check"></i> Completed!</div>
+          <td>
+            <div v-if="goal.saved >= goal.target" class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check px-1"></i> Completed!</div>
+            <div v-if="goal.saved < goal.target" class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-amber-800 bg-amber-500 text-white"> <i class="fa-solid fa-ellipsis px-4"></i> In progress</div>
           </td>
         </tr>
       </tbody>
