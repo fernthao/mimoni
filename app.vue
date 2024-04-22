@@ -14,32 +14,33 @@
     <div><GoalDialog :goalList="goals" @goal-added="addGoal"/></div>
     
     <!--List of goals-->
-    <table class="table-auto m-3 w-full text-left">
-      <thead>
+    <table class="table-auto m-3 mt-5 w-full text-left">
+      <thead class="border-b border-neutral-500">
         <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Progress</th>
-          <th>Points</th>
-          <th>Action</th>
-          <th>Status</th>
+          <th class="p-4 border-r border-dotted border-neutral-500">Name</th>
+          <th class="p-4 border-r border-dotted border-neutral-500">Description</th>
+          <th class="p-4 border-r border-dotted border-neutral-500">Progress</th>
+          <th class="p-4 border-r border-dotted border-neutral-500">Points</th>
+          <th class="p-4 border-x border-dotted border-neutral-500">Status</th>
+          <th class="p-4 ">Action</th>
         </tr>
       </thead>
       <tbody v-for="goal in goals" :key="goal.name">
-        <tr>
-          <td>{{ goal.name }}</td>
-          <td>{{ goal.description }}</td>
-          <td>{{ goal.saved }}/{{ goal.target }}</td>
-          <td>{{ goal.target }}</td>
-          <td class="flex flex-row" >
+        <tr class="border-b border-neutral-500">
+          <td class="p-4 border-r border-dotted border-neutral-500">{{ goal.name }}</td>
+          <td class="p-4 border-x border-dotted border-neutral-500">{{ goal.description }}</td>
+          <td class="p-4 border-x border-dotted border-neutral-500">{{ goal.saved }}/{{ goal.target }}</td>
+          <td class="p-4 border-x border-dotted border-neutral-500">{{ goal.target }}</td>
+          
+          <td class="p-4 border-x border-dotted border-neutral-500">
+            <div v-if="goal.saved >= goal.target" class="w-44 rounded-lg flex items-center justify-center h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check pr-1"></i> Completed!</div>
+            <div v-if="goal.saved < goal.target" class="w-44 rounded-lg flex items-center justify-center h-12 uppercase tracking-wider border-2 border-amber-800 bg-amber-500 text-white"> <i class="fa-solid fa-ellipsis pr-1"></i>Ongoing</div>
+          </td>
+          <td class="p-4 flex flex-row border-l border-dotted border-neutral-500" >
             <Update v-if="goal.saved < goal.target" :currentGoal="goal" @goal-editted="updateGoal"/>
-            <button class="w-1/2 m-1 px-6 h-12 uppercase font-semibold  tracking-wider border-2 border-black bg-neutral-300 text-black" @click.once="deleteGoal(goal)">
+            <button class="flex items-center justify-center w-1/2 px-6 h-12 uppercase font-semibold  tracking-wider border-2 border-black bg-neutral-300 text-black" @click.once="deleteGoal(goal)">
               Drop
             </button>
-          </td>
-          <td>
-            <div v-if="goal.saved >= goal.target" class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check px-1"></i> Completed!</div>
-            <div v-if="goal.saved < goal.target" class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-amber-800 bg-amber-500 text-white"> <i class="fa-solid fa-ellipsis px-4"></i> In progress</div>
           </td>
         </tr>
       </tbody>
