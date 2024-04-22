@@ -7,7 +7,9 @@
     <hr class="h-px mb-10 bg-amber-200 border-0 dark:bg-amber-700"></hr>
   </div>  
   <div class="m-5">
-    <div><GoalDialog @goal-added="addGoal"/></div>
+    <div></div>
+
+    <div><GoalDialog :goalList="goals" @goal-added="addGoal"/></div>
     
     <!--List of goals-->
     <table class="table-auto m-3 w-full text-left">
@@ -26,9 +28,12 @@
           <td>{{ goal.description }}</td>
           <td>{{ goal.saved }}/{{ goal.target }}</td>
           <td>{{ goal.target }}</td>
-          <td>
+          <td  v-if="goal.saved < goal.target">
             <Update :currentGoal="goal" @goal-editted="updateGoal"/>
             <button class="m-1 px-6 h-12 uppercase tracking-wider border-2 border-black bg-neutral-300 text-black" @click="deleteGoal(goal)">Drop</button>
+          </td>
+          <td  v-if="goal.saved >= goal.target">
+            <div class="w-fit rounded-lg flex items-center m-1 px-6 h-12 uppercase tracking-wider border-2 border-green-800 bg-green-500 text-white"> <i class="fa-solid fa-check"></i> Completed!</div>
           </td>
         </tr>
       </tbody>
@@ -80,7 +85,12 @@
       }
     })
     getGoals();
-    toast.add({title: "Goal updated!", icon:"i-heroicons-check-circle", ui:{background: "bg-white dark:bg-green-950", ring: 'ring-1 ring-green-200 dark:ring-green-800'}})
+    if (goal.saved >= goal.target) {
+      toast.add({title: "Goal completed!", icon:"i-heroicons-check-circle", ui:{background: "bg-white dark:bg-green-950", ring: 'ring-1 ring-green-200 dark:ring-green-800'}})
+    }
+    else {
+      toast.add({title: "Goal updated!", icon:"i-heroicons-check-circle", ui:{background: "bg-white dark:bg-green-950", ring: 'ring-1 ring-green-200 dark:ring-green-800'}})
+    }
   }
 
   //delete goal -> DELETE
