@@ -1,48 +1,9 @@
-# Nuxt Example
+# A tool to manage (and play with!) your saving goals
 
-Deploy your [Nuxt](https://nuxt.com) project to Vercel with zero configuration.
+My first deployed web app, built with Nuxt, TailwindCSS and Vercel Postgres. Have fun saving!
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/nuxtjs&template=nuxtjs)
+## How to use
 
-_Live Example: https://nuxtjs-template.vercel.app_
+Add your saving goal, update it as you save money and get points for each completed goal.
 
-Look at the [Nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
 
-## Setup
-
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn
-
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment#presets) for more information.
